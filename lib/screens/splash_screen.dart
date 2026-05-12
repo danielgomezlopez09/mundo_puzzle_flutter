@@ -4,7 +4,7 @@ import 'package:mundo_puzzle_flutter/screens/home_screen.dart';
 import 'package:mundo_puzzle_flutter/services/game_service.dart';
 
 class SplashScreen extends StatefulWidget {
-  const SplashScreen({Key? key}) : super(key: key);
+  const SplashScreen({super.key});
 
   @override
   State<SplashScreen> createState() => _SplashScreenState();
@@ -47,7 +47,7 @@ class _SplashScreenState extends State<SplashScreen>
     // Esperar a que terminen las animaciones antes de navegar
     Timer(const Duration(seconds: 3), () {
       if (mounted) {
-        Navigator.of(context).pushReplacementNamed('/home');
+        Navigator.of(context).pushReplacementNamed('/setup');
       }
     });
   }

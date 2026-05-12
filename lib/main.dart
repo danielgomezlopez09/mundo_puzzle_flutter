@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:mundo_puzzle_flutter/screens/splash_screen.dart';
 import 'package:mundo_puzzle_flutter/screens/home_screen.dart';
+import 'package:mundo_puzzle_flutter/screens/setup_screen.dart';
 
 void main() {
   runApp(const MundoPuzzleApp());
 }
 
 class MundoPuzzleApp extends StatelessWidget {
-  const MundoPuzzleApp({Key? key}) : super(key: key);
+  const MundoPuzzleApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +25,7 @@ class MundoPuzzleApp extends StatelessWidget {
       ),
       home: const SplashScreen(),
       routes: {
+        '/setup': (context) => const SetupScreen(),
         '/home': (context) => const HomeScreen(),
       },
     );

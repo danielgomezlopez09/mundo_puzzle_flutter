@@ -116,6 +116,8 @@ class CardProgress {
   int correctAnswersInARow;
   bool isUnlocked;
   DateTime? unlockedDate;
+  int failCount = 0;
+  DateTime? blockedUntil;
 
   CardProgress({
     required this.cardId,
@@ -123,6 +125,8 @@ class CardProgress {
     this.correctAnswersInARow = 0,
     this.isUnlocked = false,
     this.unlockedDate,
+    this.failCount = 0,
+    this.blockedUntil,
   });
 
   /// Agrega una pieza al puzzle
@@ -148,6 +152,38 @@ class CardProgress {
 
   /// Verifica si se desbloqueó una carta dorada (10 respuestas correctas seguidas)
   bool shouldUnlockLegendary() => correctAnswersInARow >= 10;
+
+  /// Incrementa el contador de fallos
+  void incrementFailCount() {
+    failCount++;
+    if (failCount >= 3) {
+      // Bloquea la carta por 24 horas
+      blockedUntil = DateTime.now().add(const Duration(hours: 24));
+    }
+  }
+
+  /// Reinicia el contador de fallos
+  void resetFailCount() {
+    failCount = 0;
+  }
+
+  /// Verifica si la carta está bloqueada
+  bool isBlocked() {
+    if (blockedUntil == null) return false;
+    if (DateTime.now().isAfter(blockedUntil!)) {
+      blockedUntil = null;
+      failCount = 0;
+      return false;
+    }
+    return true;
+  }
+
+  /// Obtiene el tiempo restante de bloqueo en minutos
+  int getBlockedTimeRemaining() {
+    if (blockedUntil == null) return 0;
+    final remaining = blockedUntil!.difference(DateTime.now());
+    return remaining.inMinutes;
+  }
 
   /// Convierte el modelo a JSON
   Map<String, dynamic> toJson() {

@@ -3,15 +3,21 @@ import 'package:mundo_puzzle_flutter/models/card_model.dart';
 /// Servicio que gestiona la lógica del juego y los datos
 class GameService {
   static final GameService _instance = GameService._internal();
+  static GameService get instance => _instance;
 
   late PlayerProfile _playerProfile;
   late List<World> _worlds;
   late Map<String, CardModel> _cardsMap;
   int _currentCorrectAnswersInARow = 0;
+  int _playerAge = 10; // Edad por defecto
 
   GameService._internal();
 
   factory GameService() {
+    return _instance;
+  }
+
+  static GameService get() {
     return _instance;
   }
 
@@ -25,6 +31,22 @@ class GameService {
       createdDate: DateTime.now(),
     );
   }
+
+  /// Inicializa el perfil del jugador con nombre y edad
+  void initializePlayer(String playerName, int age) {
+    _playerProfile = PlayerProfile(
+      playerId: 'player_${DateTime.now().millisecondsSinceEpoch}',
+      playerName: playerName,
+      createdDate: DateTime.now(),
+    );
+    _playerAge = age;
+  }
+
+  /// Obtiene la edad del jugador
+  int get playerAge => _playerAge;
+
+  /// Obtiene el nombre del jugador
+  String get playerName => _playerProfile.playerName;
 
   /// Inicializa los mundos del juego
   void _initializeWorlds() {
