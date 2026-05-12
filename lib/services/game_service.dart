@@ -6,7 +6,7 @@ class GameService {
 
   late PlayerProfile _playerProfile;
   late List<World> _worlds;
-  late Map<String, Card> _cardsMap;
+  late Map<String, CardModel> _cardsMap;
   int _currentCorrectAnswersInARow = 0;
 
   GameService._internal();
@@ -96,7 +96,7 @@ class GameService {
   }
 
   /// Crea una carta de ejemplo
-  Card _createSampleCard(String cardId, String worldId) {
+  CardModel _createSampleCard(String cardId, String worldId) {
     final cardNumber = int.parse(cardId.split('-')[1]);
     late CardRarity rarity;
 
@@ -109,7 +109,7 @@ class GameService {
       rarity = CardRarity.common;
     }
 
-    return Card(
+    return CardModel(
       id: cardId,
       worldId: worldId,
       name: 'Carta $cardId',
@@ -147,10 +147,10 @@ class GameService {
   }
 
   /// Obtiene una carta por ID
-  Card? getCard(String cardId) => _cardsMap[cardId];
+  CardModel? getCard(String cardId) => _cardsMap[cardId];
 
   /// Obtiene todas las cartas de un mundo
-  List<Card> getCardsFromWorld(String worldId) {
+  List<CardModel> getCardsFromWorld(String worldId) {
     return _cardsMap.values
         .where((card) => card.worldId == worldId)
         .toList();
@@ -212,7 +212,7 @@ class GameService {
   }
 
   /// Obtiene las cartas desbloqueadas
-  List<Card> getUnlockedCards() {
+  List<CardModel> getUnlockedCards() {
     return _cardsMap.values
         .where((card) {
           final progress = _playerProfile.cardProgress[card.id];
@@ -222,7 +222,7 @@ class GameService {
   }
 
   /// Obtiene las cartas desbloqueadas de un mundo
-  List<Card> getUnlockedCardsFromWorld(String worldId) {
+  List<CardModel> getUnlockedCardsFromWorld(String worldId) {
     return getUnlockedCards()
         .where((card) => card.worldId == worldId)
         .toList();

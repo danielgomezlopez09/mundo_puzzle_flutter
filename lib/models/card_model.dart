@@ -1,5 +1,5 @@
 /// Modelo que representa una carta coleccionable en Mundo Puzzle
-class Card {
+class CardModel {
   final String id;
   final String worldId;
   final String name;
@@ -9,7 +9,7 @@ class Card {
   final int puzzlePieces;
   final List<Question> questions;
 
-  Card({
+  CardModel({
     required this.id,
     required this.worldId,
     required this.name,
@@ -35,8 +35,8 @@ class Card {
   }
 
   /// Crea un modelo desde JSON
-  factory Card.fromJson(Map<String, dynamic> json) {
-    return Card(
+  factory CardModel.fromJson(Map<String, dynamic> json) {
+    return CardModel(
       id: json['id'],
       worldId: json['worldId'],
       name: json['name'],

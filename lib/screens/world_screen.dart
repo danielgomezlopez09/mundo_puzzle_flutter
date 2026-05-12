@@ -124,7 +124,7 @@ class _WorldScreenState extends State<WorldScreen> {
   }
 
   Widget _buildCardTile({
-    required Card card,
+    required CardModel card,
     required bool isUnlocked,
     required int unlockedPieces,
     required VoidCallback onTap,
