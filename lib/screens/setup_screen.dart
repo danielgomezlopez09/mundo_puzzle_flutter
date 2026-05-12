@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mundo_puzzle_flutter/screens/home_screen.dart';
 import 'package:mundo_puzzle_flutter/services/game_service.dart';
+import 'package:mundo_puzzle_flutter/services/storage_service.dart';
 
 /// Pantalla de configuración inicial: nombre y edad del jugador
 class SetupScreen extends StatefulWidget {
@@ -21,7 +22,7 @@ class _SetupScreenState extends State<SetupScreen> {
     super.dispose();
   }
 
-  void _startGame() {
+  void _startGame() async {
     if (_nameController.text.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Por favor ingresa tu nombre')),
@@ -31,12 +32,28 @@ class _SetupScreenState extends State<SetupScreen> {
 
     setState(() => _isLoading = true);
 
-    // Inicializa el servicio de juego con el nombre y edad
-    final gameService = GameService.instance;
-    gameService.initializePlayer(_nameController.text, _selectedAge);
+    try {
+      // Guardar datos en persistencia
+      final storageService = StorageService();
+      await storageService.savePlayerName(_nameController.text);
+      await storageService.savePlayerAge(_selectedAge);
 
-    // Navega a la pantalla de inicio
-    Navigator.of(context).pushReplacementNamed('/home');
+      // Inicializa el servicio de juego con el nombre y edad
+      final gameService = GameService.instance;
+      gameService.initializePlayer(_nameController.text, _selectedAge);
+
+      // Navega a la pantalla de inicio
+      if (mounted) {
+        Navigator.of(context).pushReplacementNamed('/home');
+      }
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Error: $e')),
+        );
+        setState(() => _isLoading = false);
+      }
+    }
   }
 
   @override

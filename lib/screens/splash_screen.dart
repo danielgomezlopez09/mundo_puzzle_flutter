@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:mundo_puzzle_flutter/screens/home_screen.dart';
 import 'package:mundo_puzzle_flutter/services/game_service.dart';
+import 'package:mundo_puzzle_flutter/services/storage_service.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -42,12 +43,27 @@ class _SplashScreenState extends State<SplashScreen>
 
   void _initializeGame() async {
     final gameService = GameService();
+    final storageService = StorageService();
+    
+    // Inicializar servicios
     await gameService.initialize();
+    await storageService.initialize();
 
     // Esperar a que terminen las animaciones antes de navegar
     Timer(const Duration(seconds: 3), () {
       if (mounted) {
-        Navigator.of(context).pushReplacementNamed('/setup');
+        // Verificar si el jugador ya fue configurado
+        if (storageService.hasPlayerData()) {
+          final name = storageService.getPlayerName();
+          final age = storageService.getPlayerAge();
+          
+          // Inicializar el juego con los datos guardados
+          gameService.initializePlayer(name!, age!);
+          Navigator.of(context).pushReplacementNamed('/home');
+        } else {
+          // Ir a la pantalla de configuración
+          Navigator.of(context).pushReplacementNamed('/setup');
+        }
       }
     });
   }

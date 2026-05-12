@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mundo_puzzle_flutter/models/card_model.dart';
 import 'package:mundo_puzzle_flutter/services/game_service.dart';
-import 'package:mundo_puzzle_flutter/screens/game_screen.dart';
+import 'package:mundo_puzzle_flutter/screens/game_screen_v2.dart';
 
 class WorldScreen extends StatefulWidget {
   final World world;
@@ -110,7 +110,7 @@ class _WorldScreenState extends State<WorldScreen> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => GameScreen(card: card),
+                        builder: (context) => GameScreenV2(card: card, worldId: widget.world.id),
                       ),
                     );
                   },

@@ -142,18 +142,12 @@ class GameService {
     );
   }
 
-  /// Genera preguntas para una carta
+  /// Genera preguntas para una carta usando QuestionGenerator
   List<Question> _generateQuestionsForCard(String cardId, String worldId) {
-    return List.generate(12, (index) {
-      return Question(
-        id: '${cardId}_q${index + 1}',
-        text: 'Pregunta de ejemplo ${index + 1}',
-        options: ['Opción A', 'Opción B', 'Opción C', 'Opción D', 'Opción E', 'Opción F'],
-        correctAnswerIndex: index % 6,
-        educationalLevel: worldId,
-        topic: 'Matemáticas',
-      );
-    });
+    // Importar QuestionGenerator
+    // Las preguntas se generarán dinámicamente en GameScreenV2
+    // según la edad del jugador
+    return [];
   }
 
   /// Obtiene todos los mundos
