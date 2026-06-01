@@ -1,0 +1,114 @@
+{
+  "worlds": [
+    {
+      "id": "FC",
+      "name": "Fondo de Coral",
+      "character": "Spongy",
+      "description": "Aprende conteo en el fondo del mar",
+      "color": "#00BCD4",
+      "cards": [
+        {"id": "FC_001", "name": "SpongeBob", "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663636838419/gU8RnGShfPubBv4EmArjbZ/FC_001_spongebob.png", "rarity": "common"},
+        {"id": "FC_002", "name": "Patrick", "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663636838419/gU8RnGShfPubBv4EmArjbZ/FC_002_patrick.png", "rarity": "common"},
+        {"id": "FC_003", "name": "Squidward", "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663636838419/gU8RnGShfPubBv4EmArjbZ/FC_003_squidward.png", "rarity": "common"},
+        {"id": "FC_004", "name": "Mr. Krabs", "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663636838419/gU8RnGShfPubBv4EmArjbZ/FC_004_krabs.png", "rarity": "common"},
+        {"id": "FC_005", "name": "Plankton", "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663636838419/gU8RnGShfPubBv4EmArjbZ/FC_005_plankton.png", "rarity": "special"},
+        {"id": "FC_006", "name": "Sandy Cheeks", "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663636838419/gU8RnGShfPubBv4EmArjbZ/FC_006_sandy.png", "rarity": "common"},
+        {"id": "FC_007", "name": "Gary", "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663636838419/gU8RnGShfPubBv4EmArjbZ/FC_007_gary.png", "rarity": "common"},
+        {"id": "FC_008", "name": "Squidward", "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663636838419/gU8RnGShfPubBv4EmArjbZ/FC_008_squidward.png", "rarity": "common"},
+        {"id": "FC_009", "name": "Mr. Krabs", "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663636838419/gU8RnGShfPubBv4EmArjbZ/FC_009_krabs.png", "rarity": "common"},
+        {"id": "FC_010", "name": "Plankton", "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663636838419/gU8RnGShfPubBv4EmArjbZ/FC_010_plankton.png", "rarity": "special"},
+        {"id": "FC_011", "name": "Jellyfish", "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663636838419/gU8RnGShfPubBv4EmArjbZ/FC_011_jellyfish.png", "rarity": "common"},
+        {"id": "FC_012", "name": "Seahorse", "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663636838419/gU8RnGShfPubBv4EmArjbZ/FC_012_seahorse.png", "rarity": "common"},
+        {"id": "FC_013", "name": "Starfish", "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663636838419/gU8RnGShfPubBv4EmArjbZ/FC_013_starfish.png", "rarity": "common"},
+        {"id": "FC_014", "name": "Dolphin", "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663636838419/gU8RnGShfPubBv4EmArjbZ/FC_014_dolphin.png", "rarity": "common"},
+        {"id": "FC_015", "name": "Octopus", "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663636838419/gU8RnGShfPubBv4EmArjbZ/FC_015_octopus.png", "rarity": "special"}
+      ]
+    },
+    {
+      "id": "MT",
+      "name": "Magia Traviesa",
+      "character": "Mika",
+      "description": "Aprende sumas con magia",
+      "color": "#9C27B0",
+      "cards": [
+        {"id": "MT_001", "name": "Kuromi", "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663636838419/gU8RnGShfPubBv4EmArjbZ/MT_001_kuromi.png", "rarity": "common"},
+        {"id": "MT_002", "name": "Badtz Maru", "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663636838419/gU8RnGShfPubBv4EmArjbZ/MT_002_badtz.png", "rarity": "common"},
+        {"id": "MT_003", "name": "Wizard", "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663636838419/gU8RnGShfPubBv4EmArjbZ/MT_003_wizard.png", "rarity": "common"},
+        {"id": "MT_004", "name": "Fairy", "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663636838419/gU8RnGShfPubBv4EmArjbZ/MT_004_fairy.png", "rarity": "common"},
+        {"id": "MT_005", "name": "Dragon", "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663636838419/gU8RnGShfPubBv4EmArjbZ/MT_005_dragon.png", "rarity": "special"},
+        {"id": "MT_006", "name": "Witch", "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663636838419/gU8RnGShfPubBv4EmArjbZ/MT_006_witch.png", "rarity": "common"},
+        {"id": "MT_007", "name": "Goblin", "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663636838419/gU8RnGShfPubBv4EmArjbZ/MT_007_goblin.png", "rarity": "common"},
+        {"id": "MT_008", "name": "Unicorn", "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663636838419/gU8RnGShfPubBv4EmArjbZ/MT_008_unicorn.png", "rarity": "common"},
+        {"id": "MT_009", "name": "Elf", "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663636838419/gU8RnGShfPubBv4EmArjbZ/MT_009_elf.png", "rarity": "common"},
+        {"id": "MT_010", "name": "Phoenix", "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663636838419/gU8RnGShfPubBv4EmArjbZ/MT_010_phoenix.png", "rarity": "special"},
+        {"id": "MT_011", "name": "Wizard Apprentice", "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663636838419/gU8RnGShfPubBv4EmArjbZ/MT_011_wizard_apprentice.png", "rarity": "common"},
+        {"id": "MT_012", "name": "Sorceress", "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663636838419/gU8RnGShfPubBv4EmArjbZ/MT_012_sorceress.png", "rarity": "common"},
+        {"id": "MT_013", "name": "Enchanted Tree", "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663636838419/gU8RnGShfPubBv4EmArjbZ/MT_013_enchanted_tree.png", "rarity": "common"},
+        {"id": "MT_014", "name": "Spirit", "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663636838419/gU8RnGShfPubBv4EmArjbZ/MT_014_spirit.png", "rarity": "common"},
+        {"id": "MT_015", "name": "Mage", "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663636838419/gU8RnGShfPubBv4EmArjbZ/MT_015_mage.png", "rarity": "special"}
+      ]
+    },
+    {
+      "id": "IJ",
+      "name": "Isla Jurásica",
+      "character": "Dinos",
+      "description": "Aprende restas con dinosaurios",
+      "color": "#4CAF50",
+      "cards": [
+        {"id": "IJ_001", "name": "T-Rex", "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663636838419/gU8RnGShfPubBv4EmArjbZ/IJ_001_trex.png", "rarity": "common"},
+        {"id": "IJ_002", "name": "Triceratops", "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663636838419/gU8RnGShfPubBv4EmArjbZ/IJ_002_triceratops.png", "rarity": "common"},
+        {"id": "IJ_003", "name": "Pterodactyl", "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663636838419/gU8RnGShfPubBv4EmArjbZ/IJ_003_pterodactyl.png", "rarity": "common"},
+        {"id": "IJ_004", "name": "Stegosaurus", "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663636838419/gU8RnGShfPubBv4EmArjbZ/IJ_004_stegosaurus.png", "rarity": "common"},
+        {"id": "IJ_005", "name": "Velociraptor", "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663636838419/gU8RnGShfPubBv4EmArjbZ/IJ_005_velociraptor.png", "rarity": "special"},
+        {"id": "IJ_006", "name": "Brachiosaurus", "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663636838419/gU8RnGShfPubBv4EmArjbZ/IJ_006_brachiosaurus.png", "rarity": "common"},
+        {"id": "IJ_007", "name": "Ankylosaurus", "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663636838419/gU8RnGShfPubBv4EmArjbZ/IJ_007_ankylosaurus.png", "rarity": "common"},
+        {"id": "IJ_008", "name": "Parasaurolophus", "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663636838419/gU8RnGShfPubBv4EmArjbZ/IJ_008_parasaurolophus.png", "rarity": "common"},
+        {"id": "IJ_009", "name": "Spinosaurus", "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663636838419/gU8RnGShfPubBv4EmArjbZ/IJ_009_spinosaurus.png", "rarity": "common"},
+        {"id": "IJ_010", "name": "Compsognathus", "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663636838419/gU8RnGShfPubBv4EmArjbZ/IJ_010_compsognathus.png", "rarity": "special"},
+        {"id": "IJ_011", "name": "Iguanodon", "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663636838419/gU8RnGShfPubBv4EmArjbZ/IJ_011_iguanodon.png", "rarity": "common"},
+        {"id": "IJ_012", "name": "Allosaurus", "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663636838419/gU8RnGShfPubBv4EmArjbZ/IJ_012_allosaurus.png", "rarity": "common"},
+        {"id": "IJ_013", "name": "Gallimimus", "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663636838419/gU8RnGShfPubBv4EmArjbZ/IJ_013_gallimimus.png", "rarity": "common"},
+        {"id": "IJ_014", "name": "Carnotaurus", "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663636838419/gU8RnGShfPubBv4EmArjbZ/IJ_014_carnotaurus.png", "rarity": "common"},
+        {"id": "IJ_015", "name": "Parasaurolophus Herd", "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663636838419/gU8RnGShfPubBv4EmArjbZ/IJ_015_parasaurolophus_herd.png", "rarity": "special"}
+      ]
+    },
+    {
+      "id": "FH",
+      "name": "Fortaleza Hunter",
+      "character": "Samurái",
+      "description": "Aprende multiplicación con samurais",
+      "color": "#FF6F00",
+      "cards": [
+        {"id": "FH_001", "name": "Samurai Warrior", "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663636838419/gU8RnGShfPubBv4EmArjbZ/FH_001_samurai.png", "rarity": "common"},
+        {"id": "FH_002", "name": "Ninja", "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663636838419/gU8RnGShfPubBv4EmArjbZ/FH_002_ninja.png", "rarity": "common"},
+        {"id": "FH_003", "name": "Demon Slayer", "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663636838419/gU8RnGShfPubBv4EmArjbZ/FH_003_demon.png", "rarity": "common"},
+        {"id": "FH_004", "name": "Shogun", "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663636838419/gU8RnGShfPubBv4EmArjbZ/FH_004_shogun.png", "rarity": "common"},
+        {"id": "FH_005", "name": "Ronin", "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663636838419/gU8RnGShfPubBv4EmArjbZ/FH_005_ronin.png", "rarity": "special"},
+        {"id": "FH_006", "name": "Swordmaster", "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663636838419/gU8RnGShfPubBv4EmArjbZ/FH_006_swordmaster.png", "rarity": "common"},
+        {"id": "FH_007", "name": "Archer", "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663636838419/gU8RnGShfPubBv4EmArjbZ/FH_007_archer.png", "rarity": "common"},
+        {"id": "FH_008", "name": "Monk", "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663636838419/gU8RnGShfPubBv4EmArjbZ/FH_008_monk.png", "rarity": "common"},
+        {"id": "FH_009", "name": "General", "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663636838419/gU8RnGShfPubBv4EmArjbZ/FH_009_general.png", "rarity": "common"},
+        {"id": "FH_010", "name": "Assassin", "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663636838419/gU8RnGShfPubBv4EmArjbZ/FH_010_assassin.png", "rarity": "special"}
+      ]
+    },
+    {
+      "id": "VR",
+      "name": "Valle de la Risa",
+      "character": "Tralaleros",
+      "description": "Aprende división con circo",
+      "color": "#E91E63",
+      "cards": [
+        {"id": "VR_001", "name": "Jester", "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663636838419/gU8RnGShfPubBv4EmArjbZ/VR_001_jester.png", "rarity": "common"},
+        {"id": "VR_002", "name": "Clown", "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663636838419/gU8RnGShfPubBv4EmArjbZ/VR_002_clown.png", "rarity": "common"},
+        {"id": "VR_003", "name": "Acrobat", "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663636838419/gU8RnGShfPubBv4EmArjbZ/VR_003_acrobat.png", "rarity": "common"},
+        {"id": "VR_004", "name": "Ringmaster", "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663636838419/gU8RnGShfPubBv4EmArjbZ/VR_004_ringmaster.png", "rarity": "common"},
+        {"id": "VR_005", "name": "Magician", "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663636838419/gU8RnGShfPubBv4EmArjbZ/VR_005_magician.png", "rarity": "special"},
+        {"id": "VR_006", "name": "Tightrope Walker", "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663636838419/gU8RnGShfPubBv4EmArjbZ/VR_006_tightrope.png", "rarity": "common"},
+        {"id": "VR_007", "name": "Strongman", "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663636838419/gU8RnGShfPubBv4EmArjbZ/VR_007_strongman.png", "rarity": "common"},
+        {"id": "VR_008", "name": "Dancer", "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663636838419/gU8RnGShfPubBv4EmArjbZ/VR_008_dancer.png", "rarity": "common"},
+        {"id": "VR_009", "name": "Lion Tamer", "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663636838419/gU8RnGShfPubBv4EmArjbZ/VR_009_lion_tamer.png", "rarity": "common"},
+        {"id": "VR_010", "name": "Juggler", "imageUrl": "https://d2xsxph8kpxj0f.cloudfront.net/310519663636838419/gU8RnGShfPubBv4EmArjbZ/VR_010_juggler.png", "rarity": "special"}
+      ]
+    }
+  ]
+}
