@@ -4,7 +4,7 @@ import 'package:mundo_puzzle_flutter/services/game_service.dart';
 import 'package:mundo_puzzle_flutter/widgets/puzzle_widget.dart';
 
 class GameScreen extends StatefulWidget {
-  final Card card;
+  final CardModel card;
 
   const GameScreen({Key? key, required this.card}) : super(key: key);
 

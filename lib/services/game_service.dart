@@ -294,6 +294,12 @@ class GameService {
     return unlockedInPrevious >= 10;
   }
 
+  /// Obtiene la racha actual de respuestas correctas
+  int getCurrentCorrectStreak() => _currentCorrectAnswersInARow;
+
+  /// Verifica si se debe desbloquear una carta legendaria (10 respuestas correctas seguidas)
+  bool shouldUnlockLegendary() => _currentCorrectAnswersInARow >= 10;
+
   /// Reinicia el progreso del jugador
   void resetProgress() {
     _playerProfile.cardProgress.clear();

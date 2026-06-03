@@ -152,7 +152,7 @@ class _AlbumScreenState extends State<AlbumScreen> {
   }
 
   Widget _buildCardTile({
-    required Card card,
+    required CardModel card,
     required bool isUnlocked,
   }) {
     return Container(
