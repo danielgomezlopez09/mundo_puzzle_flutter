@@ -36,7 +36,7 @@ jobs:
         run: /tmp/flutter/bin/flutter pub get
 
       - name: Build APK Release
-        run: /tmp/flutter/bin/flutter build apk --release --no-shrink
+        run: /tmp/flutter/bin/flutter build apk --release --split-per-abi --verbose
 
       - name: Upload APK to artifacts
         uses: actions/upload-artifact@v4
