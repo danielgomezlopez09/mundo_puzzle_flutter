@@ -36,11 +36,25 @@ jobs:
         run: /tmp/flutter/bin/flutter pub get
 
       - name: Build APK Release
-        run: /tmp/flutter/bin/flutter build apk --release --split-per-abi --verbose 2>&1 | tee build.log
-        continue-on-error: true
+        run: |
+          /tmp/flutter/bin/flutter build apk \
+            --release \
+            --no-shrink \
+            --verbose 2>&1 | tee build.log
 
       - name: Find APK files
-        run: find build -name "*.apk" -type f 2>/dev/null || echo "No APK files found"
+        run: |
+          echo "=== Searching for APK files ==="
+          find build -name "*.apk" -type f 2>/dev/null || echo "No APK files found in build/"
+          echo ""
+          echo "=== Listing build directory structure ==="
+          ls -la build/ 2>/dev/null || echo "build/ directory not found"
+          echo ""
+          echo "=== Listing app directory ==="
+          ls -la build/app/ 2>/dev/null || echo "build/app/ directory not found"
+          echo ""
+          echo "=== Listing outputs directory ==="
+          ls -la build/app/outputs/ 2>/dev/null || echo "build/app/outputs/ directory not found"
 
       - name: Upload build logs
         if: always()
@@ -55,6 +69,6 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: app-release
-          path: build/app/outputs/flutter-apk/
+          path: build/app/outputs/apk/release/
           if-no-files-found: ignore
           retention-days: 30
