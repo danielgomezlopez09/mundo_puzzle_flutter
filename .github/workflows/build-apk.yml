@@ -32,30 +32,55 @@ jobs:
           /tmp/flutter/bin/flutter config --no-analytics
           /tmp/flutter/bin/flutter doctor
 
-      - name: Get Flutter dependencies
-        run: /tmp/flutter/bin/flutter pub get
-
-      - name: Build APK Release (without flutter create)
+      - name: Create temporary Flutter project
         run: |
-          cd /home/ubuntu/mundo_puzzle_flutter
+          cd /tmp
+          /tmp/flutter/bin/flutter create --platforms android temp_app
+          echo "Temporary project created"
+          ls -la temp_app/
+
+      - name: Copy project files to temporary project
+        run: |
+          cd /tmp/temp_app
+          echo "Copying lib/ directory..."
+          rm -rf lib
+          cp -r /home/ubuntu/mundo_puzzle_flutter/lib .
+          echo "Copying pubspec.yaml..."
+          cp /home/ubuntu/mundo_puzzle_flutter/pubspec.yaml .
+          echo "Copying assets/ if exists..."
+          [ -d /home/ubuntu/mundo_puzzle_flutter/assets ] && cp -r /home/ubuntu/mundo_puzzle_flutter/assets . || echo "No assets directory"
+          echo "Files copied successfully"
+          ls -la
+
+      - name: Get Flutter dependencies
+        run: |
+          cd /tmp/temp_app
+          /tmp/flutter/bin/flutter pub get
+
+      - name: Build APK Release
+        run: |
+          cd /tmp/temp_app
           /tmp/flutter/bin/flutter build apk \
             --release \
-            --verbose 2>&1 | tee build.log
+            --verbose 2>&1 | tee /tmp/build.log
 
       - name: Find all APK files
         run: |
-          echo "=== Searching for ALL APK files in entire project ==="
-          find . -name "*.apk" -type f 2>/dev/null | head -20 || echo "No APK files found"
-          echo ""
-          echo "=== Listing complete build directory structure ==="
-          find build -type f 2>/dev/null | head -30 || echo "build/ directory not found"
+          echo "=== Searching for ALL APK files ==="
+          find /tmp/temp_app -name "*.apk" -type f 2>/dev/null | head -20 || echo "No APK files found"
+
+      - name: Copy APK to workspace
+        run: |
+          mkdir -p /home/ubuntu/mundo_puzzle_flutter/build/app/outputs/apk/release/
+          find /tmp/temp_app/build -name "*.apk" -type f -exec cp {} /home/ubuntu/mundo_puzzle_flutter/build/app/outputs/apk/release/ \; || echo "No APK files to copy"
+          ls -la /home/ubuntu/mundo_puzzle_flutter/build/app/outputs/apk/release/ || echo "APK directory empty"
 
       - name: Upload build logs
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: build-logs
-          path: build.log
+          path: /tmp/build.log
           retention-days: 7
           if-no-files-found: ignore
 
@@ -64,9 +89,6 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: apk-files
-          path: |
-            build/app/outputs/apk/release/
-            build/app/outputs/flutter-apk/
-            build/app/outputs/
+          path: /home/ubuntu/mundo_puzzle_flutter/build/app/outputs/apk/release/
           if-no-files-found: ignore
           retention-days: 30
