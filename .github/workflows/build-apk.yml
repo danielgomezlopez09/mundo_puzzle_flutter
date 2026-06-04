@@ -35,8 +35,14 @@ jobs:
       - name: Get Flutter dependencies
         run: /tmp/flutter/bin/flutter pub get
 
+      - name: Generate Android project
+        run: |
+          cd /home/ubuntu/mundo_puzzle_flutter
+          /tmp/flutter/bin/flutter create --platforms android . --force
+
       - name: Build APK Release
         run: |
+          cd /home/ubuntu/mundo_puzzle_flutter
           /tmp/flutter/bin/flutter build apk \
             --release \
             --verbose 2>&1 | tee build.log
@@ -48,11 +54,6 @@ jobs:
           echo ""
           echo "=== Listing complete build directory structure ==="
           find build -type f 2>/dev/null | head -30 || echo "build/ directory not found"
-          echo ""
-          echo "=== Checking specific paths ==="
-          ls -lah build/app/outputs/apk/release/ 2>/dev/null || echo "Path 1 not found"
-          ls -lah build/app/outputs/flutter-apk/ 2>/dev/null || echo "Path 2 not found"
-          ls -lah build/app/outputs/ 2>/dev/null || echo "Path 3 not found"
 
       - name: Upload build logs
         if: always()
