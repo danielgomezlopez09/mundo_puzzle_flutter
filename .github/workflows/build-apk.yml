@@ -35,17 +35,7 @@ jobs:
       - name: Get Flutter dependencies
         run: /tmp/flutter/bin/flutter pub get
 
-      - name: Generate Android project
-        run: |
-          cd /home/ubuntu/mundo_puzzle_flutter
-          echo "Removing old android folder if exists..."
-          rm -rf android
-          echo "Creating new android folder with flutter create..."
-          /tmp/flutter/bin/flutter create --platforms android . --force
-          echo "Android folder created successfully"
-          ls -la android/ || echo "Android folder not found!"
-
-      - name: Build APK Release
+      - name: Build APK Release (without flutter create)
         run: |
           cd /home/ubuntu/mundo_puzzle_flutter
           /tmp/flutter/bin/flutter build apk \
