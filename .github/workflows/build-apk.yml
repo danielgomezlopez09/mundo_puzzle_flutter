@@ -41,16 +41,23 @@ jobs:
 
       - name: Copy project files to temporary project
         run: |
+          set -e
+          echo "Verifying source files..."
+          ls -la /home/ubuntu/mundo_puzzle_flutter/lib
+          ls -la /home/ubuntu/mundo_puzzle_flutter/pubspec.yaml
+          echo "---"
           cd /tmp/temp_app
           echo "Copying lib/ directory..."
           rm -rf lib
-          cp -r /home/ubuntu/mundo_puzzle_flutter/lib .
+          cp -r /home/ubuntu/mundo_puzzle_flutter/lib . || { echo "Failed to copy lib"; exit 1; }
           echo "Copying pubspec.yaml..."
-          cp /home/ubuntu/mundo_puzzle_flutter/pubspec.yaml .
+          cp /home/ubuntu/mundo_puzzle_flutter/pubspec.yaml . || { echo "Failed to copy pubspec.yaml"; exit 1; }
           echo "Copying assets/ if exists..."
           [ -d /home/ubuntu/mundo_puzzle_flutter/assets ] && cp -r /home/ubuntu/mundo_puzzle_flutter/assets . || echo "No assets directory"
           echo "Files copied successfully"
+          echo "Verifying copied files:"
           ls -la
+          ls -la lib/ | head -5
 
       - name: Get Flutter dependencies
         run: |
