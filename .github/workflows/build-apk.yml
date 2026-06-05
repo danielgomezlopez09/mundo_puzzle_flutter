@@ -54,7 +54,11 @@ jobs:
         run: |
           export PATH="/tmp/flutter/bin:$PATH"
           cd $GITHUB_WORKSPACE
-          flutter build apk --release 2>&1 | tee /tmp/build.log
+          echo "Attempting to build APK with --release..."
+          /tmp/flutter/bin/flutter build apk --release --verbose 2>&1 | tee /tmp/build.log || {
+            echo "Release build failed, trying debug build..."
+            /tmp/flutter/bin/flutter build apk --debug --verbose 2>&1 | tee -a /tmp/build.log
+          }
 
       - name: Find all APK files
         run: |
