@@ -47,7 +47,14 @@ jobs:
       - name: Find all APK files
         run: |
           echo "=== Searching for APK files ==="
-          find $GITHUB_WORKSPACE/build -name "*.apk" -type f 2>/dev/null || echo "No APK files found"
+          echo "Searching in build directory..."
+          find $GITHUB_WORKSPACE/build -name "*.apk" -type f 2>/dev/null || echo "No APK in build/"
+          echo "---"
+          echo "Listing build directory structure:"
+          ls -la $GITHUB_WORKSPACE/build/app/outputs/ 2>/dev/null || echo "No outputs directory"
+          echo "---"
+          echo "Searching everywhere for APK:"
+          find $GITHUB_WORKSPACE -name "*.apk" -type f 2>/dev/null | head -10 || echo "No APK files found anywhere"
 
       - name: Upload build logs
         if: always()
@@ -63,6 +70,6 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: app-release
-          path: ${{ github.workspace }}/build/app/outputs/apk/release/
+          path: ${{ github.workspace }}/build/app/outputs/
           if-no-files-found: ignore
           retention-days: 30
