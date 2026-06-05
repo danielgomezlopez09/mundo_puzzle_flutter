@@ -38,6 +38,18 @@ jobs:
           cd $GITHUB_WORKSPACE
           flutter pub get
 
+      - name: Generate Android platform files
+        run: |
+          export PATH="/tmp/flutter/bin:$PATH"
+          cd $GITHUB_WORKSPACE
+          # Check if android folder exists, if not create it
+          if [ ! -d "android" ]; then
+            echo "Android folder not found. Creating it..."
+            /tmp/flutter/bin/flutter create --platforms android . --force 2>&1 | tee /tmp/flutter_create.log
+          else
+            echo "Android folder already exists"
+          fi
+
       - name: Build APK Release
         run: |
           export PATH="/tmp/flutter/bin:$PATH"
@@ -51,17 +63,19 @@ jobs:
           find $GITHUB_WORKSPACE/build -name "*.apk" -type f 2>/dev/null || echo "No APK in build/"
           echo "---"
           echo "Listing build directory structure:"
-          ls -la $GITHUB_WORKSPACE/build/app/outputs/ 2>/dev/null || echo "No outputs directory"
+          ls -laR $GITHUB_WORKSPACE/build/app/outputs/ 2>/dev/null || echo "No outputs directory"
           echo "---"
           echo "Searching everywhere for APK:"
-          find $GITHUB_WORKSPACE -name "*.apk" -type f 2>/dev/null | head -10 || echo "No APK files found anywhere"
+          find $GITHUB_WORKSPACE -name "*.apk" -type f 2>/dev/null | head -20 || echo "No APK files found anywhere"
 
       - name: Upload build logs
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: build-logs
-          path: /tmp/build.log
+          path: |
+            /tmp/build.log
+            /tmp/flutter_create.log
           retention-days: 7
           if-no-files-found: ignore
 
