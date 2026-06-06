@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:mundo_puzzle_flutter/models/card_model.dart';
-import 'package:mundo_puzzle_flutter/services/question_generator.dart';
 
 /// Servicio que gestiona la lógica del juego y los datos
 class GameService {

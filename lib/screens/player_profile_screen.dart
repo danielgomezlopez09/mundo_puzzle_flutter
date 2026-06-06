@@ -96,7 +96,7 @@ class _PlayerProfileScreenState extends State<PlayerProfileScreen> {
               borderRadius: BorderRadius.circular(16),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.2),
+                  color: Colors.black.withValues(alpha: 0.2),
                   blurRadius: 8,
                   spreadRadius: 2,
                 ),
@@ -112,7 +112,7 @@ class _PlayerProfileScreenState extends State<PlayerProfileScreen> {
                     color: Colors.white,
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.black.withOpacity(0.2),
+                        color: Colors.black.withValues(alpha: 0.2),
                         blurRadius: 8,
                         spreadRadius: 2,
                       ),
@@ -138,7 +138,7 @@ class _PlayerProfileScreenState extends State<PlayerProfileScreen> {
                   'Edad: $_selectedAge años',
                   style: TextStyle(
                     fontSize: 16,
-                    color: Colors.white.withOpacity(0.8),
+                    color: Colors.white.withValues(alpha: 0.8),
                   ),
                 ),
                 const SizedBox(height: 8),
@@ -146,7 +146,7 @@ class _PlayerProfileScreenState extends State<PlayerProfileScreen> {
                   'Maestro Coleccionista',
                   style: TextStyle(
                     fontSize: 14,
-                    color: Colors.white.withOpacity(0.8),
+                    color: Colors.white.withValues(alpha: 0.8),
                   ),
                 ),
               ],
@@ -346,8 +346,8 @@ class _PlayerProfileScreenState extends State<PlayerProfileScreen> {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: color.withOpacity(0.1),
-        border: Border.all(color: color.withOpacity(0.3)),
+        color: color.withValues(alpha: 0.1),
+        border: Border.all(color: color.withValues(alpha: 0.3)),
         borderRadius: BorderRadius.circular(12),
       ),
       child: Row(

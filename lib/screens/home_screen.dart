@@ -95,7 +95,7 @@ class _HomeScreenState extends State<HomeScreen> {
               borderRadius: BorderRadius.circular(12),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.1),
+                  color: Colors.black.withValues(alpha: 0.1),
                   blurRadius: 8,
                   spreadRadius: 2,
                 ),
@@ -131,7 +131,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: LinearProgressIndicator(
                     value: _gameService.getTotalProgress() / 100,
                     minHeight: 8,
-                    backgroundColor: Colors.white.withOpacity(0.3),
+                    backgroundColor: Colors.white.withValues(alpha: 0.3),
                     valueColor: const AlwaysStoppedAnimation<Color>(
                       Colors.amber,
                     ),
@@ -212,7 +212,7 @@ class _HomeScreenState extends State<HomeScreen> {
           borderRadius: BorderRadius.circular(12),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.1),
+              color: Colors.black.withValues(alpha: 0.1),
               blurRadius: 8,
               spreadRadius: 2,
             ),
