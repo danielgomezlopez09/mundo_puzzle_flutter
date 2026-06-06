@@ -148,59 +148,94 @@ class _WorldScreenState extends State<WorldScreen> {
         ),
         child: Stack(
           children: [
-            // Fondo de la carta
+            // Fondo de la carta con imagen
             Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-                color: isUnlocked
-                    ? Colors.white
-                    : Colors.grey.shade300,
-                image: isUnlocked
-                    ? null
-                    : DecorationImage(
-                        image: const AssetImage('assets/placeholder.png'),
-                        fit: BoxFit.cover,
-                        opacity: 0.3,
-                      ),
+                color: Colors.grey.shade200,
               ),
-              child: isUnlocked
-                  ? Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
-                          Icons.check_circle,
-                          size: 40,
-                          color: Colors.green.shade600,
-                        ),
-                        const SizedBox(height: 8),
-                        Text(
-                          card.id,
-                          style: const TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
+              child: Stack(
+                fit: StackFit.expand,
+                children: [
+                  // Imagen de fondo
+                  if (card.imageUrl.isNotEmpty)
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: Image.network(
+                        card.imageUrl,
+                        fit: BoxFit.cover,
+                        errorBuilder: (context, error, stackTrace) {
+                          return Container(
+                            color: Colors.grey.shade300,
+                            child: const Icon(
+                              Icons.image_not_supported,
+                              color: Colors.grey,
+                            ),
+                          );
+                        },
+                      ),
                     )
-                  : Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
-                          Icons.lock,
-                          size: 40,
-                          color: Colors.grey.shade600,
-                        ),
-                        const SizedBox(height: 8),
-                        Text(
-                          '$unlockedPieces/12',
-                          style: TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.grey.shade700,
-                          ),
-                        ),
-                      ],
+                  else
+                    Container(
+                      color: Colors.grey.shade300,
+                      child: const Icon(
+                        Icons.image_not_supported,
+                        color: Colors.grey,
+                      ),
                     ),
+                  // Overlay oscuro para cartas bloqueadas
+                  if (!isUnlocked)
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Colors.black.withValues(alpha: 0.6),
+                      ),
+                    ),
+                  // Contenido superpuesto
+                  Center(
+                    child: isUnlocked
+                        ? Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(
+                                Icons.check_circle,
+                                size: 40,
+                                color: Colors.green.shade400,
+                              ),
+                              const SizedBox(height: 8),
+                              Text(
+                                card.name,
+                                style: const TextStyle(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                            ],
+                          )
+                        : Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(
+                                Icons.lock,
+                                size: 40,
+                                color: Colors.white,
+                              ),
+                              const SizedBox(height: 8),
+                              Text(
+                                '$unlockedPieces/12',
+                                style: const TextStyle(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ],
+                          ),
+                  ),
+                ],
+              ),
             ),
             // Indicador de rareza
             Positioned(
