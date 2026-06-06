@@ -83,12 +83,20 @@ jobs:
           retention-days: 7
           if-no-files-found: ignore
 
+      - name: Find APK location
+        run: |
+          echo "=== Buscando APK en todas las rutas ==="
+          find ${{ github.workspace }} -name "*.apk" -type f 2>/dev/null || echo "No APK found"
+          echo ""
+          echo "=== Listando estructura de build ==="
+          ls -laR ${{ github.workspace }}/build 2>/dev/null || echo "Carpeta build no existe"
+
       - name: Upload APK
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: app-release
-          path: ${{ github.workspace }}/build/app/outputs/apk/release/app-release.apk
+          path: ${{ github.workspace }}/build/app/outputs/
           compression-level: 0
           if-no-files-found: ignore
           retention-days: 30
