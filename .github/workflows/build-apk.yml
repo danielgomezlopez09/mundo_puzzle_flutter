@@ -50,14 +50,25 @@ jobs:
             echo "Android folder already exists"
           fi
 
-      - name: Build APK Release
+      - name: Update local.properties
         run: |
           export PATH="/tmp/flutter/bin:$PATH"
           cd $GITHUB_WORKSPACE
+          echo "sdk.dir=/usr/lib/android-sdk" > android/local.properties
+          echo "flutter.sdk=/tmp/flutter" >> android/local.properties
+          echo "flutter.versionCode=1" >> android/local.properties
+          echo "flutter.versionName=1.0.0" >> android/local.properties
+          cat android/local.properties
+
+      - name: Build APK Release
+        run: |
+          export PATH="/tmp/flutter/bin:$PATH"
+          export ANDROID_SDK_ROOT=/usr/lib/android-sdk
+          cd $GITHUB_WORKSPACE
           echo "Attempting to build APK with --release..."
-          /tmp/flutter/bin/flutter build apk --release --verbose 2>&1 | tee /tmp/build.log || {
+          /tmp/flutter/bin/flutter build apk --release --no-pub 2>&1 | tee /tmp/build.log || {
             echo "Release build failed, trying debug build..."
-            /tmp/flutter/bin/flutter build apk --debug --verbose 2>&1 | tee -a /tmp/build.log
+            /tmp/flutter/bin/flutter build apk --debug --no-pub 2>&1 | tee -a /tmp/build.log
           }
 
       - name: Find all APK files
