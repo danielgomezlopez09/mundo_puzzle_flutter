@@ -28,7 +28,11 @@ jobs:
       - name: Download and setup Flutter
         run: |
           cd /tmp
-          git clone https://github.com/flutter/flutter.git --branch master --depth 1
+          # Clone Flutter and checkout a specific version known to work
+          git clone https://github.com/flutter/flutter.git
+          cd /tmp/flutter
+          # Try version 3.13.0 which should have compatible Gradle
+          git checkout 3.13.0 || git checkout 3.16.0 || git checkout 3.19.0 || echo "Using default version"
           /tmp/flutter/bin/flutter config --no-analytics
           /tmp/flutter/bin/flutter doctor
 
